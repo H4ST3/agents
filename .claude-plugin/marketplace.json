@@ -6,7 +6,7 @@
     "url": "https://github.com/H4ST3"
   },
   "metadata": {
-    "description": "Curated agent library with 32 production-focused plugins for personal development workflow - tightly controlled fork of wshobson/agents",
+    "description": "Curated agent library with 34 production-focused plugins for personal development workflow - tightly controlled fork of wshobson/agents",
     "version": "2.0.0"
   },
   "plugins": [
@@ -425,6 +425,32 @@
       "category": "workflows",
       "homepage": "https://github.com/wshobson/agents",
       "license": "MIT"
+    },
+    {
+      "name": "agent-browser",
+      "source": "./plugins/agent-browser",
+      "description": "Browser automation CLI for AI agents - navigate pages, fill forms, click buttons, take screenshots, extract data",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vercel Labs",
+        "url": "https://github.com/vercel-labs/agent-browser"
+      },
+      "homepage": "https://github.com/vercel-labs/agent-browser",
+      "license": "Apache-2.0",
+      "category": "automation"
+    },
+    {
+      "name": "skill-creator",
+      "source": "./plugins/skill-creator",
+      "description": "Guide for creating effective skills with structured workflows, tool integrations, and domain expertise",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vercel Labs",
+        "url": "https://github.com/vercel-labs/agent-browser"
+      },
+      "homepage": "https://github.com/vercel-labs/agent-browser",
+      "license": "Apache-2.0",
+      "category": "development"
     }
   ]
 }
