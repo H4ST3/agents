@@ -49,11 +49,13 @@ standards/task-priorities.md
 
 For each file in the managed file list:
 
-1. Read the source file at `<plugin-root>/<file>`.
-2. Read the destination file at `~/.claude/<file>` (if it exists).
-3. If the destination does not exist or its content differs from the source, write the source content to the destination.
-4. Create parent directories (`~/.claude/rules/`, `~/.claude/standards/`) if they do not exist.
+1. Create parent directories (`~/.claude/rules/`, `~/.claude/standards/`) if they do not exist.
+2. Read the source file at `<plugin-root>/<file>`.
+3. Read the destination file at `~/.claude/<file>` (if it exists).
+4. If the destination does not exist or its content differs from the source, write the source content to the destination.
 5. Track each file's status: **created** (destination did not exist), **updated** (destination existed but content differed), or **unchanged** (content was identical).
+
+If any file copy fails, report the failure and do not proceed to writing the manifest (Step 7).
 
 ## Step 6: Manage CLAUDE.md Marker Section
 
