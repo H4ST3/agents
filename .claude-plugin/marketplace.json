@@ -414,6 +414,17 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "openspec",
+      "source": "./plugins/openspec",
+      "description": "Spec-driven development with lightweight artifact pipeline. Manages changes through proposals, specs, design, and implementation tasks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Christopher Allen"
+      },
+      "category": "workflows",
+      "license": "MIT"
+    },
+    {
       "name": "agent-teams",
       "description": "Orchestrate multi-agent teams for parallel code review, hypothesis-driven debugging, and coordinated feature development using Claude Code's Agent Teams",
       "version": "1.0.2",
