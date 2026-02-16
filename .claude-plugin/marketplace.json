@@ -462,6 +462,19 @@
       "homepage": "https://github.com/vercel-labs/agent-browser",
       "license": "Apache-2.0",
       "category": "development"
+    },
+    {
+      "name": "claude-9",
+      "source": "./plugins/claude-9",
+      "description": "Portable soul plugin — identity, agents, hooks, skills, rules, and standards",
+      "version": "1.0.0",
+      "author": {
+        "name": "Chris Allen",
+        "email": "chris.allen94@gmail.com"
+      },
+      "homepage": "https://github.com/H4ST3/agents",
+      "license": "UNLICENSED",
+      "category": "workflows"
     }
   ]
 }
