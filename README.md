@@ -16,25 +16,23 @@ This repository follows a **minimal, curated** approach:
 
 ## What's Included
 
-### Core Plugins (32 retained)
+### Core Plugins (29 retained)
 
 **Development & Workflows:**
 - `agent-orchestration`, `agent-teams`, `conductor`
-- `debugging-toolkit`, `error-debugging`, `error-diagnostics`
+- `debugging`
 - `developer-essentials`, `git-pr-workflows`
 
 **Infrastructure & Operations:**
-- `deployment-strategies`, `deployment-validation`
 - `kubernetes-operations`, `cloud-infrastructure`, `cicd-automation`
 - `observability-monitoring`, `incident-response`
 
 **Data & AI:**
 - `data-engineering`, `machine-learning-ops`
-- `database-design`, `database-cloud-optimization`
+- `database`
 
 **Documentation & Testing:**
-- `code-documentation`, `documentation-generation`
-- `c4-architecture`, `api-testing-observability`
+- `documentation`, `c4-architecture`
 
 **Domain-Specific:**
 - `quantitative-trading` (investments project)
@@ -61,11 +59,11 @@ These can be pulled from upstream if needed, but default is minimal.
 agents/
 ├── .claude-plugin/
 │   └── marketplace.json          # Plugin registry
-├── plugins/                       # 32 curated plugins
+├── plugins/                       # 29 curated plugins
 │   ├── agent-orchestration/
 │   ├── conductor/
 │   ├── kubernetes-operations/
-│   └── ... (29 more)
+│   └── ... (26 more)
 ├── docs/                          # Original documentation
 ├── tools/                         # Utility scripts
 ├── SECURITY_BASELINE.md           # Security requirements
@@ -144,7 +142,7 @@ See `README-SECURITY.md` for security guidelines specific to this repository.
 | Aspect | Upstream (wshobson/agents) | This Fork (H4ST3/agents) |
 |--------|---------------------------|--------------------------|
 | **Focus** | Comprehensive marketplace | Curated personal library |
-| **Plugin Count** | 73 plugins | 32 plugins (44% reduction) |
+| **Plugin Count** | 73 plugins | 29 plugins (60% reduction) |
 | **Maintenance** | Community contributions | Single maintainer (strict) |
 | **Updates** | Frequent additions | Cherry-picked only |
 | **Security** | Standard practices | Custom baseline required |

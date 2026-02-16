@@ -78,12 +78,12 @@ Claude Code automatically selects and coordinates the appropriate agents based o
 
 | Command                                | Description                    |
 | -------------------------------------- | ------------------------------ |
-| `/debugging-toolkit:smart-debug`       | Interactive smart debugging    |
+| `/debugging:smart-debug`               | Interactive smart debugging    |
+| `/debugging:error-analysis`            | Deep error analysis            |
+| `/debugging:error-trace`               | Stack trace debugging          |
+| `/debugging:multi-agent-review`        | Multi-agent debug review       |
 | `/incident-response:incident-response` | Production incident management |
 | `/incident-response:smart-fix`         | Automated incident resolution  |
-| `/error-debugging:error-analysis`      | Deep error analysis            |
-| `/error-debugging:error-trace`         | Stack trace debugging          |
-| `/error-diagnostics:smart-debug`       | Smart diagnostic debugging     |
 | `/distributed-debugging:debug-trace`   | Distributed system tracing     |
 
 ### Security
@@ -102,7 +102,7 @@ Claude Code automatically selects and coordinates the appropriate agents based o
 | ----------------------------------------- | ------------------------------- |
 | `/observability-monitoring:monitor-setup` | Setup monitoring infrastructure |
 | `/observability-monitoring:slo-implement` | Implement SLO/SLI metrics       |
-| `/deployment-validation:config-validate`  | Pre-deployment validation       |
+| `/cicd-automation:config-validate`  | Pre-deployment validation       |
 | `/cicd-automation:workflow-automate`      | CI/CD pipeline automation       |
 
 ### Data & ML
@@ -117,9 +117,8 @@ Claude Code automatically selects and coordinates the appropriate agents based o
 
 | Command                                  | Description                                                                                |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `/code-documentation:doc-generate`       | Generate comprehensive documentation                                                       |
-| `/code-documentation:code-explain`       | Explain code functionality                                                                 |
-| `/documentation-generation:doc-generate` | OpenAPI specs, diagrams, tutorials                                                         |
+| `/documentation:doc-generate`       | Generate comprehensive documentation, OpenAPI specs, diagrams, and tutorials               |
+| `/documentation:code-explain`       | Explain code functionality                                                                 |
 | `/c4-architecture:c4-architecture`       | Generate comprehensive C4 architecture documentation (Context, Container, Component, Code) |
 
 ### Refactoring & Maintenance
@@ -140,7 +139,7 @@ Claude Code automatically selects and coordinates the appropriate agents based o
 | ---------------------------------------------- | ------------------------------- |
 | `/database-migrations:sql-migrations`          | SQL migration automation        |
 | `/database-migrations:migration-observability` | Migration monitoring            |
-| `/database-cloud-optimization:cost-optimize`   | Database and cloud optimization |
+| `/database:cost-optimize`   | Database and cloud optimization |
 
 ### Git & PR Workflows
 
@@ -192,7 +191,7 @@ Claude Code automatically selects and coordinates the appropriate agents based o
 
 | Command                               | Description             |
 | ------------------------------------- | ----------------------- |
-| `/api-testing-observability:api-mock` | API mocking and testing |
+| `/observability-monitoring:api-mock` | API mocking and testing |
 
 ### Context Management
 
@@ -307,7 +306,7 @@ Many slash commands support arguments for precise control:
 /tdd-workflows:tdd-refactor
 
 # Smart debugging
-/debugging-toolkit:smart-debug memory leak in checkout flow
+/debugging:smart-debug memory leak in checkout flow
 
 # Python project scaffolding
 /python-development:python-scaffold fastapi-microservice
@@ -392,5 +391,5 @@ See [Agent Skills](./agent-skills.md) for details on the 107 specialized skills.
 
 - [Agent Skills](./agent-skills.md) - Specialized knowledge packages
 - [Agent Reference](./agents.md) - Complete agent catalog
-- [Plugin Reference](./plugins.md) - All 67 plugins
+- [Plugin Reference](./plugins.md) - All 65 plugins
 - [Architecture](./architecture.md) - Design principles
