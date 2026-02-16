@@ -1,6 +1,6 @@
 # Complete Plugin Reference
 
-Browse all **72 focused, single-purpose plugins** organized by category.
+Browse all **65 focused, single-purpose plugins** organized by category.
 
 ## Quick Start - Essential Plugins
 
@@ -8,21 +8,21 @@ Browse all **72 focused, single-purpose plugins** organized by category.
 
 ### Development Essentials
 
-**code-documentation** - Documentation and technical writing
+**documentation** - Documentation and technical writing
 
 ```bash
-/plugin install code-documentation
+/plugin install documentation
 ```
 
-Automated doc generation, code explanation, and tutorial creation for comprehensive technical documentation.
+Automated doc generation, code explanation, OpenAPI specs, and tutorial creation for comprehensive technical documentation.
 
-**debugging-toolkit** - Smart debugging and developer experience
+**debugging** - Smart debugging and developer experience
 
 ```bash
-/plugin install debugging-toolkit
+/plugin install debugging
 ```
 
-Interactive debugging, error analysis, and DX optimization for faster problem resolution.
+Interactive debugging, error analysis, error tracing, and DX optimization for faster problem resolution.
 
 **git-pr-workflows** - Git automation and PR enhancement
 
@@ -120,19 +120,18 @@ Next.js, React + Vite, and Node.js project setup with pnpm and TypeScript best p
 
 | Plugin                          | Description                                                  | Install                                       |
 | ------------------------------- | ------------------------------------------------------------ | --------------------------------------------- |
-| **debugging-toolkit**           | Interactive debugging and DX optimization                    | `/plugin install debugging-toolkit`           |
+| **debugging**                   | Interactive debugging, error analysis, and DX optimization   | `/plugin install debugging`                   |
 | **backend-development**         | Backend API design with GraphQL and TDD                      | `/plugin install backend-development`         |
 | **frontend-mobile-development** | Frontend UI and mobile development                           | `/plugin install frontend-mobile-development` |
 | **ui-design**                   | UI/UX design for mobile (iOS, Android, React Native) and web | `/plugin install ui-design`                   |
 | **multi-platform-apps**         | Cross-platform app coordination (web/iOS/Android)            | `/plugin install multi-platform-apps`         |
 
-### 📚 Documentation (3 plugins)
+### 📚 Documentation (2 plugins)
 
-| Plugin                       | Description                                                                                                                                     | Install                                    |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| **code-documentation**       | Documentation generation and code explanation                                                                                                   | `/plugin install code-documentation`       |
-| **documentation-generation** | OpenAPI specs, Mermaid diagrams, tutorials                                                                                                      | `/plugin install documentation-generation` |
-| **c4-architecture**          | Comprehensive C4 architecture documentation workflow with bottom-up code analysis, component synthesis, container mapping, and context diagrams | `/plugin install c4-architecture`          |
+| Plugin               | Description                                                                                                                                     | Install                        |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| **documentation**    | Documentation generation, code explanation, OpenAPI specs, Mermaid diagrams, and tutorials                                                      | `/plugin install documentation` |
+| **c4-architecture**  | Comprehensive C4 architecture documentation workflow with bottom-up code analysis, component synthesis, container mapping, and context diagrams | `/plugin install c4-architecture` |
 
 ### 🔄 Workflows (4 plugins)
 
@@ -158,13 +157,12 @@ Next.js, React + Vite, and Node.js project setup with pnpm and TypeScript best p
 | **comprehensive-review**       | Multi-perspective code analysis               | `/plugin install comprehensive-review`       |
 | **performance-testing-review** | Performance analysis and test coverage review | `/plugin install performance-testing-review` |
 
-### 🛠️ Utilities (4 plugins)
+### 🛠️ Utilities (3 plugins)
 
 | Plugin                    | Description                                | Install                                 |
 | ------------------------- | ------------------------------------------ | --------------------------------------- |
 | **code-refactoring**      | Code cleanup and technical debt management | `/plugin install code-refactoring`      |
 | **dependency-management** | Dependency auditing and version management | `/plugin install dependency-management` |
-| **error-debugging**       | Error analysis and trace debugging         | `/plugin install error-debugging`       |
 | **team-collaboration**    | Team workflows and standup automation      | `/plugin install team-collaboration`    |
 
 ### 🤖 AI & ML (4 plugins)
@@ -185,36 +183,32 @@ Next.js, React + Vite, and Node.js project setup with pnpm and TypeScript best p
 
 ### 🗄️ Database (2 plugins)
 
-| Plugin                  | Description                             | Install                               |
-| ----------------------- | --------------------------------------- | ------------------------------------- |
-| **database-design**     | Database architecture and schema design | `/plugin install database-design`     |
-| **database-migrations** | Database migration automation           | `/plugin install database-migrations` |
+| Plugin                  | Description                                                     | Install                               |
+| ----------------------- | --------------------------------------------------------------- | ------------------------------------- |
+| **database**            | Database architecture, schema design, query and cost optimization | `/plugin install database`            |
+| **database-migrations** | Database migration automation                                    | `/plugin install database-migrations` |
 
-### 🚨 Operations (4 plugins)
+### 🚨 Operations (3 plugins)
 
-| Plugin                       | Description                           | Install                                    |
-| ---------------------------- | ------------------------------------- | ------------------------------------------ |
-| **incident-response**        | Production incident management        | `/plugin install incident-response`        |
-| **error-diagnostics**        | Error tracing and root cause analysis | `/plugin install error-diagnostics`        |
-| **distributed-debugging**    | Distributed system tracing            | `/plugin install distributed-debugging`    |
-| **observability-monitoring** | Metrics, logging, tracing, and SLO    | `/plugin install observability-monitoring` |
+| Plugin                       | Description                        | Install                                    |
+| ---------------------------- | ---------------------------------- | ------------------------------------------ |
+| **incident-response**        | Production incident management     | `/plugin install incident-response`        |
+| **distributed-debugging**    | Distributed system tracing         | `/plugin install distributed-debugging`    |
+| **observability-monitoring** | Metrics, logging, tracing, and SLO | `/plugin install observability-monitoring` |
 
-### ⚡ Performance (2 plugins)
+### ⚡ Performance (1 plugin)
 
-| Plugin                          | Description                                | Install                                       |
-| ------------------------------- | ------------------------------------------ | --------------------------------------------- |
-| **application-performance**     | Application profiling and optimization     | `/plugin install application-performance`     |
-| **database-cloud-optimization** | Database query and cloud cost optimization | `/plugin install database-cloud-optimization` |
+| Plugin                      | Description                            | Install                                   |
+| --------------------------- | -------------------------------------- | ----------------------------------------- |
+| **application-performance** | Application profiling and optimization | `/plugin install application-performance` |
 
-### ☁️ Infrastructure (5 plugins)
+### ☁️ Infrastructure (3 plugins)
 
-| Plugin                    | Description                                 | Install                                 |
-| ------------------------- | ------------------------------------------- | --------------------------------------- |
-| **deployment-strategies** | Deployment patterns and rollback automation | `/plugin install deployment-strategies` |
-| **deployment-validation** | Pre-deployment checks and validation        | `/plugin install deployment-validation` |
-| **kubernetes-operations** | K8s manifests and GitOps workflows          | `/plugin install kubernetes-operations` |
-| **cloud-infrastructure**  | AWS/Azure/GCP cloud architecture            | `/plugin install cloud-infrastructure`  |
-| **cicd-automation**       | CI/CD pipeline configuration                | `/plugin install cicd-automation`       |
+| Plugin                    | Description                      | Install                                 |
+| ------------------------- | -------------------------------- | --------------------------------------- |
+| **kubernetes-operations** | K8s manifests and GitOps workflows | `/plugin install kubernetes-operations` |
+| **cloud-infrastructure**  | AWS/Azure/GCP cloud architecture   | `/plugin install cloud-infrastructure`  |
+| **cicd-automation**       | CI/CD pipeline configuration       | `/plugin install cicd-automation`       |
 
 ### 🔒 Security (4 plugins)
 
@@ -232,12 +226,11 @@ Next.js, React + Vite, and Node.js project setup with pnpm and TypeScript best p
 | **framework-migration** | Framework upgrades and migration planning | `/plugin install framework-migration` |
 | **codebase-cleanup**    | Technical debt reduction and cleanup      | `/plugin install codebase-cleanup`    |
 
-### 🌐 API (2 plugins)
+### 🌐 API (1 plugin)
 
-| Plugin                        | Description                 | Install                                     |
-| ----------------------------- | --------------------------- | ------------------------------------------- |
-| **api-scaffolding**           | REST/GraphQL API generation | `/plugin install api-scaffolding`           |
-| **api-testing-observability** | API testing and monitoring  | `/plugin install api-testing-observability` |
+| Plugin              | Description                 | Install                       |
+| ------------------- | --------------------------- | ----------------------------- |
+| **api-scaffolding** | REST/GraphQL API generation | `/plugin install api-scaffolding` |
 
 ### 📢 Marketing (4 plugins)
 
@@ -332,7 +325,7 @@ plugins/python-development/
 /plugin marketplace add wshobson/agents
 ```
 
-This makes all 67 plugins available for installation, but **does not load any agents or tools** into your context.
+This makes all 65 plugins available for installation, but **does not load any agents or tools** into your context.
 
 ### Step 2: Install Specific Plugins
 
