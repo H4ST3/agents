@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 # validate-git-c.sh - PreToolUse hook for git -C commands.
 # Allows safe read-only git commands under ~/projects, with optional
 # piping to safe filter commands (head, tail, grep, wc, etc.).
