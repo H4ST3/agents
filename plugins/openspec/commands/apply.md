@@ -60,22 +60,40 @@ Implement tasks from an OpenSpec change.
    - Remaining tasks overview
    - Dynamic instruction from CLI
 
-6. **Implement tasks (loop until done or blocked)**
+6. **Classify tasks before starting**
 
-   For each pending task:
-   - Show which task is being worked on
-   - Make the code changes required
-   - Keep changes minimal and focused
+   Before the implementation loop, assess pending tasks:
+   - **Independence**: Which tasks touch different files/modules with no shared state?
+   - **Complexity**: Simple (single-file, clear change) vs. complex (multi-file, architectural)
+   - **Dependencies**: Which tasks must complete before others can start?
+
+   Independent tasks can be dispatched to subagents in parallel. Dependent or overlapping tasks must run sequentially. Briefly announce the execution approach.
+
+7. **Implement tasks (loop until done or blocked)**
+
+   **Do NOT implement tasks inline.** Delegate each task to a focused subagent via the Task tool.
+
+   For each pending task (or parallel batch of independent tasks):
+   - Show which task(s) are being worked on
+   - Dispatch to subagent:
+     - `subagent_type: solution-architect` for complex multi-file tasks
+     - `subagent_type: general-purpose, model: sonnet` for straightforward changes
+   - Each subagent prompt must include: task description, relevant context from change artifacts, target files, and constraint to keep changes minimal and scoped
+   - For independent tasks, dispatch multiple in a single message (parallel)
+   - Never dispatch parallel tasks that edit the same files
+   - Review subagent results; check for conflicts if parallel
    - Mark task complete in the tasks file: `- [ ]` -> `- [x]`
-   - Continue to next task
+   - Continue to next task or batch
 
    **Pause if:**
    - Task is unclear -> ask for clarification
+   - Subagent reports an issue or ambiguity -> escalate
    - Implementation reveals a design issue -> suggest updating artifacts
+   - Parallel agents produced conflicting changes -> resolve before continuing
    - Error or blocker encountered -> report and wait for guidance
    - User interrupts
 
-7. **On completion or pause, show status**
+8. **On completion or pause, show status**
 
    Display:
    - Tasks completed this session
