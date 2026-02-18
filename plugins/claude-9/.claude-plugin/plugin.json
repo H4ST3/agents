@@ -1,6 +1,6 @@
 {
   "name": "claude-9",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Portable soul plugin — identity, agents, hooks, skills, rules, and standards",
   "author": {
     "name": "Chris Allen",

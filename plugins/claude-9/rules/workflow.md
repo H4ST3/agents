@@ -1,4 +1,3 @@
-<!-- SOUL:BEGIN v1.0.0 -->
 # Workflow Standards
 
 Procedural conventions for commits, output, and collaboration tools.
@@ -10,6 +9,7 @@ Procedural conventions for commits, output, and collaboration tools.
 - Keep subject line under 72 characters
 - Use imperative mood ("add" not "added")
 - Include ticket number when available
+- Do not include Co-Authored-By, Generated-By, or similar attribution lines
 
 ## GitHub Issue/PR Creation
 
@@ -44,4 +44,3 @@ When producing analysis, advisory, or review output, use this structure:
 ## Diagrams & Visualizations
 
 Prefer Mermaid diagrams over ASCII art when creating charts, flowcharts, sequence diagrams, or other visualizations. Mermaid renders better and is easier to maintain.
-<!-- SOUL:END -->

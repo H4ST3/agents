@@ -7,7 +7,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 
 # Setup: Install or Update claude-9 Managed Files
 
-Install the claude-9 plugin's managed files into `~/.claude/` and configure `CLAUDE.md` imports. Run this after first install and after every plugin update.
+Install the claude-9 plugin's managed files as symlinks into `~/.claude/` and configure `CLAUDE.md` imports. Run this after first install and after every plugin update.
 
 ## Step 1: Determine Plugin Root
 
@@ -18,7 +18,7 @@ plugins/claude-9/skills/setup/SKILL.md   <- this file
 plugins/claude-9/                         <- plugin root
 ```
 
-Resolve the plugin root path. All source files are read relative to it. Confirm `soul.md` exists at the plugin root before continuing.
+Resolve the plugin root path. All source files are read relative to it. Confirm `SOUL.md` exists at the plugin root before continuing.
 
 ## Step 2: Read Existing Manifest
 
@@ -29,51 +29,56 @@ Read `~/.claude/.soul-manifest.json` if it exists.
 
 ## Step 3: Read Plugin Version
 
-Read `<plugin-root>/.claude-plugin/plugin.json` and extract the `version` field (currently `"1.0.0"`). This version is used in the marker section and the manifest.
+Read `<plugin-root>/.claude-plugin/plugin.json` and extract the `version` field (currently `"1.2.0"`). This version is used in the marker section and the manifest.
 
 ## Step 4: Managed File List
 
-These files are copied from the plugin root to `~/.claude/`:
+These files are symlinked from the plugin root to `~/.claude/`:
 
 ```
-soul.md
-rules/python.md
+SOUL.md
 rules/security.md
 rules/workflow.md
 rules/agent-conventions.md
+rules/notion-safety.md
 standards/parallel-execution.md
 standards/task-priorities.md
 ```
 
-## Step 5: Copy Managed Files
+## Step 5: Create Symlinks
 
 For each file in the managed file list:
 
 1. Create parent directories (`~/.claude/rules/`, `~/.claude/standards/`) if they do not exist.
-2. Read the source file at `<plugin-root>/<file>`.
-3. Read the destination file at `~/.claude/<file>` (if it exists).
-4. If the destination does not exist or its content differs from the source, write the source content to the destination.
-5. Track each file's status: **created** (destination did not exist), **updated** (destination existed but content differed), or **unchanged** (content was identical).
+2. Resolve the absolute source path: `<plugin-root>/<file>`.
+3. Check the destination at `~/.claude/<file>`:
+   - Does not exist → create symlink → status: **created**
+   - Symlink pointing to correct source → status: **unchanged**
+   - Symlink pointing elsewhere → replace → status: **updated**
+   - Regular file → back up to `~/.claude/.soul-backups/<file>` → replace with symlink → status: **migrated**
+4. Create symlink: `ln -sf <source> <destination>`
 
-If any file copy fails, report the failure and do not proceed to writing the manifest (Step 7).
+## Step 5a: Cleanup Stale Files
+
+If the previous manifest exists (from Step 2), compare its `files` list to the current managed file list (Step 4). For files in the old list but NOT in the new list:
+
+- Symlink pointing to plugin root → remove it
+- Regular file → leave alone (user-created)
+- Report removed files in summary
 
 ## Step 6: Manage CLAUDE.md Marker Section
 
 Generate the marker section from the managed file list and plugin version:
 
 ```markdown
-<!-- SOUL:BEGIN v1.0.0 -->
-@soul.md
-@rules/python.md
-@rules/security.md
-@rules/workflow.md
-@rules/agent-conventions.md
+<!-- SOUL:BEGIN v1.2.0 -->
+@SOUL.md
 @standards/parallel-execution.md
 @standards/task-priorities.md
 <!-- SOUL:END -->
 ```
 
-The version in `<!-- SOUL:BEGIN v1.0.0 -->` must match the plugin version from step 3.
+Rules in `~/.claude/rules/` auto-load — no `@` imports needed. The version in `<!-- SOUL:BEGIN -->` must match the plugin version from step 3.
 
 Handle three scenarios:
 
@@ -93,13 +98,15 @@ Write `~/.claude/.soul-manifest.json` with the following content:
 ```json
 {
   "version": "<plugin version>",
+  "install_type": "symlink",
   "installed_at": "<ISO 8601 timestamp>",
+  "plugin_root": "<absolute path to plugin root>",
   "files": [
-    "soul.md",
-    "rules/python.md",
+    "SOUL.md",
     "rules/security.md",
     "rules/workflow.md",
     "rules/agent-conventions.md",
+    "rules/notion-safety.md",
     "standards/parallel-execution.md",
     "standards/task-priorities.md"
   ]
@@ -124,7 +131,8 @@ If any are found, warn the user: these hooks are now provided by the claude-9 pl
 Output a summary with:
 
 1. **Install type**: Whether this was a fresh install or an upgrade (and from which version to which version).
-2. **Managed files table**: A table showing each file and its status (created / updated / unchanged).
-3. **CLAUDE.md status**: Whether it was created, updated (markers replaced or prepended), or already correct.
-4. **Warnings**: Any duplicate hook warnings from step 8.
-5. **Next step**: Instruct the user to restart Claude Code for changes to take effect.
+2. **Managed files table**: A table showing each file and its status (created / updated / unchanged / migrated).
+3. **Stale files**: Any files removed during cleanup (Step 5a).
+4. **CLAUDE.md status**: Whether it was created, updated (markers replaced or prepended), or already correct.
+5. **Warnings**: Any duplicate hook warnings from step 8.
+6. **Next step**: Instruct the user to restart Claude Code for changes to take effect.

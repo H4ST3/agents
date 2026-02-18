@@ -94,7 +94,7 @@ At the start of every task:
 
 Before marking work complete:
 - [ ] Follows existing project patterns and conventions
-- [ ] Type hints on all function signatures
+- [ ] Follows language-specific conventions (type annotations, naming, etc.)
 - [ ] Error handling at system boundaries
 - [ ] Tests written and passing
 - [ ] No secrets or credentials in code
