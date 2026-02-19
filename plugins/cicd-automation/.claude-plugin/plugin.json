@@ -1,6 +1,6 @@
 {
   "name": "cicd-automation",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "CI/CD pipeline configuration, GitHub Actions/GitLab CI workflow setup, deployment pipeline orchestration, and configuration validation",
   "author": {
     "name": "Christopher Allen",
