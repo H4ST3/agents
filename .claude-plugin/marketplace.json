@@ -6,8 +6,8 @@
     "url": "https://github.com/H4ST3"
   },
   "metadata": {
-    "description": "Curated agent library with 29 production-focused plugins for personal development workflow - tightly controlled fork of wshobson/agents",
-    "version": "3.0.0"
+    "description": "Curated agent library with 28 production-focused plugins for personal development workflow - tightly controlled fork of wshobson/agents",
+    "version": "4.0.0"
   },
   "plugins": [
     {
@@ -78,7 +78,7 @@
     {
       "name": "cicd-automation",
       "description": "CI/CD pipeline configuration, GitHub Actions/GitLab CI workflow setup, deployment pipeline orchestration, and configuration validation",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "author": {
         "name": "Christopher Allen",
         "email": "chris.allen94@gmail.com"
@@ -103,15 +103,15 @@
     },
     {
       "name": "cloud-infrastructure",
-      "description": "Cloud architecture design for AWS/Azure/GCP, Kubernetes cluster configuration, Terraform infrastructure-as-code, hybrid cloud networking, and multi-cloud cost optimization",
-      "version": "1.2.2",
+      "description": "Cloud architecture design for AWS/Azure/GCP, Kubernetes operations (GitOps, Helm, manifests, security policies), Terraform infrastructure-as-code, service mesh, hybrid cloud networking, and multi-cloud cost optimization",
+      "version": "1.3.0",
       "author": {
-        "name": "Seth Hobson",
-        "email": "seth@major7apps.com"
+        "name": "Christopher Allen",
+        "email": "chris.allen94@gmail.com"
       },
       "source": "./plugins/cloud-infrastructure",
       "category": "infrastructure",
-      "homepage": "https://github.com/wshobson/agents",
+      "homepage": "https://github.com/H4ST3/agents",
       "license": "MIT"
     },
     {
@@ -254,19 +254,6 @@
       },
       "source": "./plugins/incident-response",
       "category": "operations",
-      "homepage": "https://github.com/wshobson/agents",
-      "license": "MIT"
-    },
-    {
-      "name": "kubernetes-operations",
-      "description": "Kubernetes manifest generation, networking configuration, security policies, observability setup, GitOps workflows, and auto-scaling",
-      "version": "1.2.1",
-      "author": {
-        "name": "Seth Hobson",
-        "email": "seth@major7apps.com"
-      },
-      "source": "./plugins/kubernetes-operations",
-      "category": "infrastructure",
       "homepage": "https://github.com/wshobson/agents",
       "license": "MIT"
     },
