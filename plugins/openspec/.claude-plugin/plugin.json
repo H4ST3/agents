@@ -1,9 +1,10 @@
 {
   "name": "openspec",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Spec-driven development workflow using OpenSpec. Lightweight artifact pipeline for managing changes through proposals, specs, design, and tasks.",
   "author": {
     "name": "Christopher Allen"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "hooks": "./hooks/hooks.json"
 }

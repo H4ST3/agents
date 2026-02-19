@@ -1,13 +1,17 @@
 ---
-description: "Implement tasks from an OpenSpec change (Experimental)"
+description: "Implement tasks from an OpenSpec change"
 argument-hint: "[change-name]"
 ---
 
 Implement tasks from an OpenSpec change.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
+**Step 0: Verify CLI**
 
-**Input**: Optionally specify a change name (e.g., `/opsx:apply add-auth`). If omitted, check if it can be inferred from conversation context. If vague or ambiguous you MUST prompt for available changes.
+Run: `which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"`
+
+If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `npm install -g @fission-ai/openspec@latest`" and stop.
+
+**Input**: Optionally specify a change name (e.g., `/openspec:apply add-auth`). If omitted, check if it can be inferred from conversation context. If vague or ambiguous you MUST prompt for available changes.
 
 **Steps**
 
@@ -18,7 +22,7 @@ Implement tasks from an OpenSpec change.
    - Auto-select if only one active change exists
    - If ambiguous, run `openspec list --json` to get available changes and use the **AskUserQuestion tool** to let the user select
 
-   Always announce: "Using change: <name>" and how to override (e.g., `/opsx:apply <other>`).
+   Always announce: "Using change: <name>" and how to override (e.g., `/openspec:apply <other>`).
 
 2. **Check status to understand the schema**
    ```bash
@@ -41,7 +45,7 @@ Implement tasks from an OpenSpec change.
    - Dynamic instruction based on current state
 
    **Handle states:**
-   - If `state: "blocked"` (missing artifacts): show message, suggest using `/opsx:continue`
+   - If `state: "blocked"` (missing artifacts): show message, suggest using `/openspec:continue`
    - If `state: "all_done"`: congratulate, suggest archive
    - Otherwise: proceed to implementation
 
@@ -129,7 +133,7 @@ Task complete
 - [x] Task 2
 ...
 
-All tasks complete! You can archive this change with `/opsx:archive`.
+All tasks complete! You can archive this change with `/openspec:archive`.
 ```
 
 **Output On Pause (Issue Encountered)**

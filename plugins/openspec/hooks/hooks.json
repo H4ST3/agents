@@ -1,0 +1,16 @@
+{
+  "description": "OpenSpec workflow preference hooks",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "EnterPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/prefer-openspec.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

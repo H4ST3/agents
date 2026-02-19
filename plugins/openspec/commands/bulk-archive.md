@@ -4,7 +4,11 @@ description: "Archive multiple completed changes at once"
 
 Archive multiple completed changes in a single operation.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
+**Step 0: Verify CLI**
+
+Run: `which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"`
+
+If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `npm install -g @fission-ai/openspec@latest`" and stop.
 
 This skill allows you to batch-archive changes, handling spec conflicts intelligently by checking the codebase to determine what's actually implemented.
 
@@ -224,7 +228,7 @@ Failed K changes:
 ```
 ## No Changes to Archive
 
-No active changes found. Use `/opsx:new` to create a new change.
+No active changes found. Use `/openspec:new` to create a new change.
 ```
 
 **Guardrails**

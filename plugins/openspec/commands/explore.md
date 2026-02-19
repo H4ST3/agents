@@ -3,15 +3,40 @@ description: "Enter explore mode - think through ideas, investigate problems, cl
 argument-hint: "[topic or idea]"
 ---
 
-Enter explore mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.
+Enter explore mode. Think deeply. Visualize freely.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
+**Input**: The argument after `/openspec:explore` is whatever the user wants to think about — a vague idea, a specific problem, a change name, a comparison, or nothing.
 
-**IMPORTANT: Explore mode is for thinking, not implementing.** You may read files, search code, and investigate the codebase, but you must NEVER write code or implement features. If the user asks you to implement something, remind them to exit explore mode first (e.g., start a change with `/opsx:new` or `/opsx:ff`). You MAY create OpenSpec artifacts (proposals, designs, specs) if the user asks—that's capturing thinking, not implementing.
+## Step 1: Choose exploration scope
+
+Use the **AskUserQuestion tool** to ask:
+
+> "What kind of exploration do you need?"
+
+Options:
+1. **OpenSpec-scoped** — "Think within the OpenSpec change context: read artifacts, explore specs, investigate problems related to a change. No code writing."
+2. **Broad exploration** — "General codebase investigation with full tool access. OpenSpec context provided if relevant but not constraining."
+3. **Brainstorming first** — "Creative divergent thinking before narrowing. Invokes the brainstorming skill, then offers to transition into scoped or broad exploration."
+
+Pass the user's topic (if provided) through to whichever mode is selected.
+
+---
+
+## If OpenSpec-scoped
+
+### Step 0: Verify CLI
+
+Run: `which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"`
+
+If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `npm install -g @fission-ai/openspec@latest`" and stop.
+
+### The rules of this mode
+
+**IMPORTANT: Explore mode is for thinking, not implementing.** You may read files, search code, and investigate the codebase, but you must NEVER write code or implement features. If the user asks you to implement something, remind them to exit explore mode first (e.g., start a change with `/openspec:new` or `/openspec:ff`). You MAY create OpenSpec artifacts (proposals, designs, specs) if the user asks — that's capturing thinking, not implementing.
 
 **This is a stance, not a workflow.** There are no fixed steps, no required sequence, no mandatory outputs. You're a thinking partner helping the user explore.
 
-**Input**: The argument after `/opsx:explore` is whatever the user wants to think about. Could be:
+The user's topic could be:
 - A vague idea: "real-time collaboration"
 - A specific problem: "the auth system is getting unwieldy"
 - A change name: "add-dark-mode" (to explore in context of that change)
@@ -20,7 +45,7 @@ Enter explore mode. Think deeply. Visualize freely. Follow the conversation wher
 
 ---
 
-## The Stance
+### The Stance
 
 - **Curious, not prescriptive** - Ask questions that emerge naturally, don't follow a script
 - **Open threads, not interrogations** - Surface multiple interesting directions and let the user follow what resonates. Don't funnel them through a single path of questions.
@@ -31,7 +56,7 @@ Enter explore mode. Think deeply. Visualize freely. Follow the conversation wher
 
 ---
 
-## What You Might Do
+### What You Might Do
 
 Depending on what the user brings, you might:
 
@@ -78,11 +103,11 @@ Depending on what the user brings, you might:
 
 ---
 
-## OpenSpec Awareness
+### OpenSpec Awareness
 
 You have full context of the OpenSpec system. Use it naturally, don't force it.
 
-### Check for context
+#### Check for context
 
 At the start, quickly check what exists:
 ```bash
@@ -96,15 +121,15 @@ This tells you:
 
 If the user mentioned a specific change name, read its artifacts for context.
 
-### When no change exists
+#### When no change exists
 
 Think freely. When insights crystallize, you might offer:
 
 - "This feels solid enough to start a change. Want me to create one?"
-  -> Can transition to `/opsx:new` or `/opsx:ff`
+  -> Can transition to `/openspec:new` or `/openspec:ff`
 - Or keep exploring - no pressure to formalize
 
-### When a change exists
+#### When a change exists
 
 If the user mentions a change or you detect one is relevant:
 
@@ -138,7 +163,7 @@ If the user mentions a change or you detect one is relevant:
 
 ---
 
-## What You Don't Have To Do
+### What You Don't Have To Do
 
 - Follow a script
 - Ask the same questions every time
@@ -149,11 +174,11 @@ If the user mentions a change or you detect one is relevant:
 
 ---
 
-## Ending Discovery
+### Ending Discovery
 
 There's no required ending. Discovery might:
 
-- **Flow into action**: "Ready to start? `/opsx:new` or `/opsx:ff`"
+- **Flow into action**: "Ready to start? `/openspec:new` or `/openspec:ff`"
 - **Result in artifact updates**: "Updated design.md with these decisions"
 - **Just provide clarity**: User has what they need, moves on
 - **Continue later**: "We can pick this up anytime"
@@ -162,7 +187,7 @@ When things crystallize, you might offer a summary - but it's optional. Sometime
 
 ---
 
-## Guardrails
+### Guardrails
 
 - **Don't implement** - Never write code or implement features. Creating OpenSpec artifacts is fine, writing application code is not.
 - **Don't fake understanding** - If something is unclear, dig deeper
@@ -172,3 +197,38 @@ When things crystallize, you might offer a summary - but it's optional. Sometime
 - **Do visualize** - A good diagram is worth many paragraphs
 - **Do explore the codebase** - Ground discussions in reality
 - **Do question assumptions** - Including the user's and your own
+
+---
+
+## If Broad exploration
+
+You are now in general exploration mode. OpenSpec context is available but does not constrain you.
+
+If an `openspec/` directory exists, briefly note any active changes for context:
+```bash
+openspec list --json 2>/dev/null
+```
+
+Then explore freely:
+- Read files, search code, investigate architecture
+- No "never write code" guardrail — full tool access
+- Follow the user's thread wherever it goes
+- Use the topic argument (if provided) as your starting point
+
+---
+
+## If Brainstorming first
+
+Invoke the **brainstorming skill** by using the Skill tool:
+```
+skill: "superpowers:brainstorming"
+args: "<the user's topic>"
+```
+
+After brainstorming completes, offer the user a transition:
+
+> "Brainstorming complete. Would you like to continue with OpenSpec-scoped exploration (confined to change artifacts) or broad exploration (full codebase access)?"
+
+Use the **AskUserQuestion tool** with two options:
+1. **OpenSpec-scoped** — proceed to the OpenSpec-scoped section above
+2. **Broad exploration** — proceed to the broad exploration section above

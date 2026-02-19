@@ -5,9 +5,13 @@ argument-hint: "<change-name or description>"
 
 Fast-forward through artifact creation - generate everything needed to start implementation.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
+**Step 0: Verify CLI**
 
-**Input**: The argument after `/opsx:ff` is the change name (kebab-case), OR a description of what the user wants to build.
+Run: `which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"`
+
+If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `npm install -g @fission-ai/openspec@latest`" and stop.
+
+**Input**: The argument after `/openspec:ff` is the change name (kebab-case), OR a description of what the user wants to build.
 
 **Steps**
 
@@ -77,7 +81,7 @@ After completing all artifacts, summarize:
 - Change name and location
 - List of artifacts created with brief descriptions
 - What's ready: "All artifacts created! Ready for implementation."
-- Prompt: "Run `/opsx:apply` to start implementing."
+- Prompt: "Run `/openspec:apply` to start implementing."
 
 **Artifact Creation Guidelines**
 

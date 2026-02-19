@@ -1,13 +1,17 @@
 ---
-description: "Continue working on a change - create the next artifact (Experimental)"
+description: "Continue working on a change - create the next artifact"
 argument-hint: "[change-name]"
 ---
 
 Continue working on a change by creating the next artifact.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
+**Step 0: Verify CLI**
 
-**Input**: Optionally specify a change name after `/opsx:continue` (e.g., `/opsx:continue add-auth`). If omitted, check if it can be inferred from conversation context. If vague or ambiguous you MUST prompt for available changes.
+Run: `which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"`
+
+If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `npm install -g @fission-ai/openspec@latest`" and stop.
+
+**Input**: Optionally specify a change name after `/openspec:continue` (e.g., `/openspec:continue add-auth`). If omitted, check if it can be inferred from conversation context. If vague or ambiguous you MUST prompt for available changes.
 
 **Steps**
 
@@ -41,7 +45,7 @@ Continue working on a change by creating the next artifact.
    **If all artifacts are complete (`isComplete: true`)**:
    - Congratulate the user
    - Show final status including the schema used
-   - Suggest: "All artifacts created! You can now implement this change with `/opsx:apply` or archive it with `/opsx:archive`."
+   - Suggest: "All artifacts created! You can now implement this change with `/openspec:apply` or archive it with `/openspec:archive`."
    - STOP
 
    ---
@@ -85,7 +89,7 @@ After each invocation, show:
 - Schema workflow being used
 - Current progress (N/M complete)
 - What artifacts are now unlocked
-- Prompt: "Run `/opsx:continue` to create the next artifact"
+- Prompt: "Run `/openspec:continue` to create the next artifact"
 
 **Artifact Creation Guidelines**
 

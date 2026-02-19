@@ -4,22 +4,62 @@ description: "Guided onboarding - walk through a complete OpenSpec workflow cycl
 
 Guide the user through their first complete OpenSpec workflow cycle. This is a teaching experience—you'll do real work in their codebase while explaining each step.
 
-> **Prerequisite:** OpenSpec CLI must be installed: `npm install -g openspec`
-
 ---
 
 ## Preflight
 
-Before starting, check if OpenSpec is initialized:
+### Step 1: Check CLI installation
 
 ```bash
-openspec status --json 2>&1 || echo "NOT_INITIALIZED"
+which openspec >/dev/null 2>&1 || echo "NOT_INSTALLED"
 ```
 
-**If not initialized:**
-> OpenSpec isn't set up in this project yet. Run `openspec init` first, then come back to `/opsx:onboard`.
+**If NOT_INSTALLED:**
 
-Stop here if not initialized.
+> OpenSpec CLI is not installed. Install it first:
+>
+> ```
+> npm install -g openspec
+> ```
+>
+> Then come back to `/openspec:onboard`.
+
+Stop here if not installed.
+
+### Step 2: Check project initialization
+
+```bash
+ls openspec/ >/dev/null 2>&1 || echo "NOT_INITIALIZED"
+```
+
+**If NOT_INITIALIZED:**
+
+Use **AskUserQuestion** to ask:
+
+> OpenSpec needs to be initialized in this project. This plugin already provides Claude Code commands. Do you also use other AI tools that need OpenSpec setup?
+
+Provide two options:
+
+1. **No, just initialize** -- "Set up the openspec/ directory only (recommended)"
+2. **Yes, select tools** -- "Also generate integration files for other AI tools"
+
+**If option 1 (just initialize):**
+
+```bash
+openspec init --tools none
+```
+
+**If option 2 (select tools):**
+
+Use a follow-up **AskUserQuestion** listing the available tool integrations (Cursor, Windsurf, Copilot, etc.). Do NOT list Claude Code since this plugin already handles that.
+
+Then run init with the user's selections:
+
+```bash
+openspec init --tools <comma-separated-selection>
+```
+
+**If already initialized** (openspec/ directory exists): skip init entirely, proceed to Phase 1.
 
 ---
 
@@ -141,7 +181,7 @@ Spend 1-2 minutes investigating the relevant code:
 │   [Optional: ASCII diagram if helpful]  │
 └─────────────────────────────────────────┘
 
-Explore mode (`/opsx:explore`) is for this kind of thinking—investigating before implementing. You can use it anytime you need to think through a problem.
+Explore mode (`/openspec:explore`) is for this kind of thinking—investigating before implementing. You can use it anytime you need to think through a problem.
 
 Now let's create a change to hold our work.
 ```
@@ -454,19 +494,19 @@ This same rhythm works for any size change—a small fix or a major feature.
 
 | Command | What it does |
 |---------|--------------|
-| `/opsx:explore` | Think through problems before/during work |
-| `/opsx:new` | Start a new change, step through artifacts |
-| `/opsx:ff` | Fast-forward: create all artifacts at once |
-| `/opsx:continue` | Continue working on an existing change |
-| `/opsx:apply` | Implement tasks from a change |
-| `/opsx:verify` | Verify implementation matches artifacts |
-| `/opsx:archive` | Archive a completed change |
+| `/openspec:explore` | Think through problems before/during work |
+| `/openspec:new` | Start a new change, step through artifacts |
+| `/openspec:ff` | Fast-forward: create all artifacts at once |
+| `/openspec:continue` | Continue working on an existing change |
+| `/openspec:apply` | Implement tasks from a change |
+| `/openspec:verify` | Verify implementation matches artifacts |
+| `/openspec:archive` | Archive a completed change |
 
 ---
 
 ## What's Next?
 
-Try `/opsx:new` or `/opsx:ff` on something you actually want to build. You've got the rhythm now!
+Try `/openspec:new` or `/openspec:ff` on something you actually want to build. You've got the rhythm now!
 ```
 
 ---
@@ -481,8 +521,8 @@ If the user says they need to stop, want to pause, or seem disengaged:
 No problem! Your change is saved at `openspec/changes/<name>/`.
 
 To pick up where we left off later:
-- `/opsx:continue <name>` - Resume artifact creation
-- `/opsx:apply <name>` - Jump to implementation (if tasks exist)
+- `/openspec:continue <name>` - Resume artifact creation
+- `/openspec:apply <name>` - Jump to implementation (if tasks exist)
 
 The work won't be lost. Come back whenever you're ready.
 ```
@@ -498,15 +538,15 @@ If the user says they just want to see the commands or skip the tutorial:
 
 | Command | What it does |
 |---------|--------------|
-| `/opsx:explore` | Think through problems (no code changes) |
-| `/opsx:new <name>` | Start a new change, step by step |
-| `/opsx:ff <name>` | Fast-forward: all artifacts at once |
-| `/opsx:continue <name>` | Continue an existing change |
-| `/opsx:apply <name>` | Implement tasks |
-| `/opsx:verify <name>` | Verify implementation |
-| `/opsx:archive <name>` | Archive when done |
+| `/openspec:explore` | Think through problems (no code changes) |
+| `/openspec:new <name>` | Start a new change, step by step |
+| `/openspec:ff <name>` | Fast-forward: all artifacts at once |
+| `/openspec:continue <name>` | Continue an existing change |
+| `/openspec:apply <name>` | Implement tasks |
+| `/openspec:verify <name>` | Verify implementation |
+| `/openspec:archive <name>` | Archive when done |
 
-Try `/opsx:new` to start your first change, or `/opsx:ff` if you want to move fast.
+Try `/openspec:new` to start your first change, or `/openspec:ff` if you want to move fast.
 ```
 
 Exit gracefully.
