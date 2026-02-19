@@ -71,7 +71,7 @@ If NOT_INSTALLED, tell the user: "OpenSpec CLI is not installed. Install with: `
    - **Complexity**: Simple (single-file, clear change) vs. complex (multi-file, architectural)
    - **Dependencies**: Which tasks must complete before others can start?
 
-   Independent tasks can be dispatched to subagents in parallel. Dependent or overlapping tasks must run sequentially. Briefly announce the execution approach.
+   Independent tasks can be dispatched to subagents in parallel. Dependent or overlapping tasks must run sequentially. Think carefully about batch operations that should be done by a single agent for efficiency. Briefly announce the execution approach.
 
 7. **Implement tasks (loop until done or blocked)**
 
