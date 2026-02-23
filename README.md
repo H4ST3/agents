@@ -119,6 +119,24 @@ git cherry-pick <commit-hash>
 3. **Test in isolation** - Verify no conflicts with existing agents
 4. **Document usage** - Update this README
 
+### Version Management
+
+**Single Source of Truth:**
+- Plugin versions are defined **ONLY** in `.claude-plugin/marketplace.json`
+- Individual `plugin.json` files contain identity metadata (name, author, license, description) but **no version field**
+- This prevents version drift and simplifies maintenance
+
+**Version Bump Guidelines:**
+- **PATCH** (x.y.Z): Bug fixes, documentation updates, minor tweaks
+- **MINOR** (x.Y.0): New commands/agents/skills added, backward-compatible features
+- **MAJOR** (X.0.0): Breaking changes to existing functionality, API changes
+
+**Validation:**
+Run `make validate-marketplace` to verify:
+- No phantom plugins (marketplace entry without directory)
+- No orphaned plugins (directory without marketplace entry)
+- No `version` fields in plugin.json files
+
 ### Rules
 
 - **No bulk merges from upstream** - This defeats the purpose of curation
