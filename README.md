@@ -12,19 +12,19 @@ This repository follows a **minimal, curated** approach:
 - **Zero bloat** - Removed 40+ unused plugins from upstream
 - **Security-first** - Custom security baseline and guidelines (see `SECURITY_BASELINE.md`)
 - **Strict version control** - All changes reviewed before merge
-- **No marketplace dependencies** - Self-contained and isolated
+- **Marketplace-native** - Proper Claude Code plugin marketplace structure
 
 ## What's Included
 
-### Core Plugins (29 retained)
+### Core Plugins (27 retained)
 
 **Development & Workflows:**
-- `agent-orchestration`, `agent-teams`, `conductor`
-- `debugging`
-- `developer-essentials`, `git-pr-workflows`
+- `agent-orchestration`, `agent-teams`, `conductor`, `openspec`
+- `debugging`, `developer-essentials`
+- `agent-browser`, `skill-creator`
 
 **Infrastructure & Operations:**
-- `kubernetes-operations`, `cloud-infrastructure`, `cicd-automation`
+- `cloud-infrastructure`, `cicd-automation`
 - `observability-monitoring`, `incident-response`
 
 **Data & AI:**
@@ -34,9 +34,12 @@ This repository follows a **minimal, curated** approach:
 **Documentation & Testing:**
 - `documentation`, `c4-architecture`
 
+**Identity & Standards:**
+- `claude-9` (portable soul plugin)
+
 **Domain-Specific:**
 - `quantitative-trading` (investments project)
-- `seo-*` (content and analysis)
+- `seo-analysis-monitoring`, `seo-content-creation`, `seo-technical-optimization`
 - `business-analytics`, `customer-sales-automation`
 - `content-marketing`, `hr-legal-compliance`
 - `shell-scripting`
@@ -58,35 +61,51 @@ These can be pulled from upstream if needed, but default is minimal.
 ```
 agents/
 ├── .claude-plugin/
-│   └── marketplace.json          # Plugin registry
-├── plugins/                       # 29 curated plugins
+│   └── marketplace.json          # Plugin registry (single source of truth for versions)
+├── plugins/                       # 27 curated plugins
 │   ├── agent-orchestration/
+│   ├── claude-9/
 │   ├── conductor/
-│   ├── kubernetes-operations/
-│   └── ... (26 more)
+│   └── ... (24 more)
 ├── docs/                          # Original documentation
-├── tools/                         # Utility scripts
+├── tools/                         # Utility scripts (validate-marketplace.py)
+├── Makefile                       # Development commands
 ├── SECURITY_BASELINE.md           # Security requirements
 └── README.md                      # This file
 ```
 
 ## Installation
 
-This is a **private fork**, not the public marketplace. To use:
+This is a **private fork** distributed as a Claude Code plugin marketplace.
+
+### Add as a marketplace (from local clone)
 
 ```bash
-# Clone into ~/projects/agents (already done)
-cd ~/projects/agents
+# In Claude Code, run:
+/plugin marketplace add /path/to/agents
+```
 
-# Symlink to Claude Code plugins directory (if needed)
-ln -s ~/projects/agents ~/.claude/plugins/h4st3-agents
+### Add as a marketplace (from GitHub)
 
-# Or reference directly in project .claude config
+```bash
+# In Claude Code, run:
+/plugin marketplace add H4ST3/agents
+```
+
+### Install individual plugins
+
+```bash
+# Browse available plugins
+/plugin
+
+# Install specific plugins
+claude plugin install conductor@h4st3-agents
+claude plugin install debugging@h4st3-agents
 ```
 
 ## Usage
 
-Reference agents by their plugin name:
+Reference plugins by their namespaced name:
 
 ```bash
 # Use conductor for context-driven development
@@ -95,8 +114,8 @@ Reference agents by their plugin name:
 # Launch agent orchestration
 /agent-orchestration:orchestrate
 
-# Kubernetes operations
-/kubernetes-operations:deploy
+# Use openspec for spec-driven development
+/openspec:propose
 ```
 
 ## Maintenance
@@ -160,29 +179,17 @@ See `README-SECURITY.md` for security guidelines specific to this repository.
 | Aspect | Upstream (wshobson/agents) | This Fork (H4ST3/agents) |
 |--------|---------------------------|--------------------------|
 | **Focus** | Comprehensive marketplace | Curated personal library |
-| **Plugin Count** | 73 plugins | 29 plugins (60% reduction) |
+| **Plugin Count** | 73 plugins | 27 plugins (63% reduction) |
 | **Maintenance** | Community contributions | Single maintainer (strict) |
 | **Updates** | Frequent additions | Cherry-picked only |
 | **Security** | Standard practices | Custom baseline required |
 | **Purpose** | Public consumption | Private workflow |
 
-## Related Projects
-
-This agent library is used across multiple projects in `~/projects`:
-
-- **grantwiser** - Grant management platform
-- **cja-systems** - Business development operations
-- **atlas** - Personal AI assistant
-- **investments** - Quantitative trading
-- **Internal tools** - Various automation
-
-See `~/projects/CLAUDE.md` for workspace-level agent routing.
-
 ## License
 
 Inherits MIT license from upstream `wshobson/agents`.
 
-Modifications and security additions © 2024 Chris Anderson (H4ST3).
+Modifications and security additions © 2024 Christopher Allen (H4ST3).
 
 ---
 
