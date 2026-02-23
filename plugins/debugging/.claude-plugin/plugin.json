@@ -1,6 +1,5 @@
 {
   "name": "debugging",
-  "version": "1.3.0",
   "description": "Error tracing, root cause analysis, smart debugging, developer experience optimization, and multi-agent code review",
   "author": {
     "name": "Christopher Allen",

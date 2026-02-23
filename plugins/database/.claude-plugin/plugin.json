@@ -1,6 +1,5 @@
 {
   "name": "database",
-  "version": "1.3.0",
   "description": "Database architecture, schema design, SQL optimization, query performance tuning, and cloud database cost optimization",
   "author": {
     "name": "Christopher Allen",
