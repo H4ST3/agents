@@ -1,8 +1,8 @@
-# Agent Library - Tightly Controlled Source
+# Agent Library - Curated Claude Code Plugins
 
-> **Private fork of wshobson/agents** — Curated agent collection for personal projects
+> **Curated fork of [wshobson/agents](https://github.com/wshobson/agents)** — Streamlined agent collection for production workflows
 
-A streamlined, production-focused agent library for Claude Code. This is a tightly controlled fork containing only the agents, skills, and plugins needed for my personal development workflow.
+A streamlined, production-focused agent library for Claude Code. This is a tightly controlled fork containing only the agents, skills, and plugins needed for focused development workflows.
 
 ## Philosophy
 
@@ -38,7 +38,7 @@ This repository follows a **minimal, curated** approach:
 - `claude-9` (portable soul plugin)
 
 **Domain-Specific:**
-- `quantitative-trading` (investments project)
+- `quantitative-trading`
 - `seo-analysis-monitoring`, `seo-content-creation`, `seo-technical-optimization`
 - `business-analytics`, `customer-sales-automation`
 - `content-marketing`, `hr-legal-compliance`
@@ -46,7 +46,7 @@ This repository follows a **minimal, curated** approach:
 
 ### What Was Removed
 
-41 plugins removed for being unused, overly specialized, or outside my stack:
+41 plugins removed for being unused, overly specialized, or outside this collection's focus:
 
 - Language-specific plugins (Python, JS/TS, Rust, Go, Java, etc.)
 - Framework-specific agents (Django, FastAPI, React, etc.)
@@ -76,7 +76,7 @@ agents/
 
 ## Installation
 
-This is a **private fork** distributed as a Claude Code plugin marketplace.
+This is a **curated fork** distributed as a Claude Code plugin marketplace.
 
 ### Add as a marketplace (from local clone)
 
@@ -183,7 +183,7 @@ See `README-SECURITY.md` for security guidelines specific to this repository.
 | **Maintenance** | Community contributions | Single maintainer (strict) |
 | **Updates** | Frequent additions | Cherry-picked only |
 | **Security** | Standard practices | Custom baseline required |
-| **Purpose** | Public consumption | Private workflow |
+| **Purpose** | Public consumption | Curated workflow |
 
 ## License
 
@@ -194,4 +194,4 @@ Modifications and security additions © 2024 Christopher Allen (H4ST3).
 ---
 
 **Upstream:** [wshobson/agents](https://github.com/wshobson/agents)
-**This Fork:** https://github.com/H4ST3/agents (private)
+**This Fork:** https://github.com/H4ST3/agents
