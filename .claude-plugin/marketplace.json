@@ -92,7 +92,7 @@
       "name": "claude-9",
       "source": "./plugins/claude-9",
       "description": "Portable soul plugin \u2014 identity, agents, hooks, skills, rules, and standards",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "author": {
         "name": "Chris Allen",
         "email": "chris.allen94@gmail.com"
