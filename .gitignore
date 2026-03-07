@@ -22,3 +22,6 @@ venv
 node_modules
 .sass-cache
 .claude
+
+# Test dependencies (fetched by make test-hooks)
+.cache/
