@@ -10,13 +10,13 @@ Complete reference for all **100 specialized AI agents** organized by category w
 
 | Agent                                                                                         | Model  | Description                                                            |
 | --------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------- |
-| [backend-architect](../plugins/backend-development/agents/backend-architect.md)               | opus   | RESTful API design, microservice boundaries, database schemas          |
+| [backend-architect](../plugins/data-engineering/agents/backend-architect.md)               | opus   | RESTful API design, microservice boundaries, database schemas          |
 | [frontend-developer](../plugins/multi-platform-apps/agents/frontend-developer.md)             | sonnet | React components, responsive layouts, client-side state management     |
 | [graphql-architect](../plugins/backend-development/agents/graphql-architect.md)               | opus   | GraphQL schemas, resolvers, federation architecture                    |
 | [architect-reviewer](../plugins/comprehensive-review/agents/architect-review.md)              | opus   | Architectural consistency analysis and pattern validation              |
 | [cloud-architect](../plugins/cloud-infrastructure/agents/cloud-architect.md)                  | opus   | AWS/Azure/GCP infrastructure design and cost optimization              |
 | [hybrid-cloud-architect](../plugins/cloud-infrastructure/agents/hybrid-cloud-architect.md)    | opus   | Multi-cloud strategies across cloud and on-premises environments       |
-| [kubernetes-architect](../plugins/kubernetes-operations/agents/kubernetes-architect.md)       | opus   | Cloud-native infrastructure with Kubernetes and GitOps                 |
+| [kubernetes-architect](../plugins/cloud-infrastructure/agents/kubernetes-architect.md)       | opus   | Cloud-native infrastructure with Kubernetes and GitOps                 |
 | [service-mesh-expert](../plugins/cloud-infrastructure/agents/service-mesh-expert.md)          | opus   | Istio/Linkerd service mesh architecture, mTLS, and traffic management  |
 | [event-sourcing-architect](../plugins/backend-development/agents/event-sourcing-architect.md) | opus   | Event sourcing, CQRS patterns, event stores, and saga orchestration    |
 | [monorepo-architect](../plugins/developer-essentials/agents/monorepo-architect.md)            | opus   | Monorepo tooling with Nx, Turborepo, Bazel, and workspace optimization |
@@ -74,7 +74,7 @@ Complete reference for all **100 specialized AI agents** organized by category w
 | [haskell-pro](../plugins/functional-programming/agents/haskell-pro.md)             | sonnet | Strongly typed functional programming with purity, advanced type systems, and concurrency |
 | [unity-developer](../plugins/game-development/agents/unity-developer.md)           | sonnet | Unity game development and optimization                                                   |
 | [minecraft-bukkit-pro](../plugins/game-development/agents/minecraft-bukkit-pro.md) | sonnet | Minecraft server plugin development                                                       |
-| [sql-pro](../plugins/database-design/agents/sql-pro.md)                            | sonnet | Complex SQL queries and database optimization                                             |
+| [sql-pro](../plugins/database/agents/sql-pro.md)                            | sonnet | Complex SQL queries and database optimization                                             |
 
 ### Infrastructure & Operations
 
@@ -82,25 +82,25 @@ Complete reference for all **100 specialized AI agents** organized by category w
 
 | Agent                                                                                  | Model  | Description                                                        |
 | -------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------ |
-| [devops-troubleshooter](../plugins/incident-response/agents/devops-troubleshooter.md)  | sonnet | Production debugging, log analysis, deployment troubleshooting     |
-| [deployment-engineer](../plugins/cloud-infrastructure/agents/deployment-engineer.md)   | sonnet | CI/CD pipelines, containerization, cloud deployments               |
+| [devops-troubleshooter](../plugins/cicd-automation/agents/devops-troubleshooter.md)  | sonnet | Production debugging, log analysis, deployment troubleshooting     |
+| [deployment-engineer](../plugins/cicd-automation/agents/deployment-engineer.md)   | sonnet | CI/CD pipelines, containerization, cloud deployments               |
 | [terraform-specialist](../plugins/cloud-infrastructure/agents/terraform-specialist.md) | sonnet | Infrastructure as Code with Terraform modules and state management |
-| [dx-optimizer](../plugins/team-collaboration/agents/dx-optimizer.md)                   | sonnet | Developer experience optimization and tooling improvements         |
+| [dx-optimizer](../plugins/debugging/agents/dx-optimizer.md)                   | sonnet | Developer experience optimization and tooling improvements         |
 
 #### Database Management
 
 | Agent                                                                                  | Model  | Description                                                         |
 | -------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------- |
-| [database-optimizer](../plugins/observability-monitoring/agents/database-optimizer.md) | sonnet | Query optimization, index design, migration strategies              |
+| [database-optimizer](../plugins/database/agents/database-optimizer.md) | sonnet | Query optimization, index design, migration strategies              |
 | [database-admin](../plugins/database-migrations/agents/database-admin.md)              | sonnet | Database operations, backup, replication, monitoring                |
-| [database-architect](../plugins/database-design/agents/database-architect.md)          | opus   | Database design from scratch, technology selection, schema modeling |
+| [database-architect](../plugins/database/agents/database-architect.md)          | opus   | Database design from scratch, technology selection, schema modeling |
 
 #### Incident Response & Network
 
 | Agent                                                                              | Model  | Description                                         |
 | ---------------------------------------------------------------------------------- | ------ | --------------------------------------------------- |
 | [incident-responder](../plugins/incident-response/agents/incident-responder.md)    | opus   | Production incident management and resolution       |
-| [network-engineer](../plugins/observability-monitoring/agents/network-engineer.md) | sonnet | Network debugging, load balancing, traffic analysis |
+| [network-engineer](../plugins/cloud-infrastructure/agents/network-engineer.md) | sonnet | Network debugging, load balancing, traffic analysis |
 
 #### Project Management
 
@@ -114,7 +114,7 @@ Complete reference for all **100 specialized AI agents** organized by category w
 
 | Agent                                                                                            | Model | Description                                                     |
 | ------------------------------------------------------------------------------------------------ | ----- | --------------------------------------------------------------- |
-| [code-reviewer](../plugins/comprehensive-review/agents/code-reviewer.md)                         | opus  | Code review with security focus and production reliability      |
+| [code-reviewer](../plugins/git-pr-workflows/agents/code-reviewer.md)                         | opus  | Code review with security focus and production reliability      |
 | [security-auditor](../plugins/comprehensive-review/agents/security-auditor.md)                   | opus  | Vulnerability assessment and OWASP compliance                   |
 | [backend-security-coder](../plugins/data-validation-suite/agents/backend-security-coder.md)      | opus  | Secure backend coding practices, API security implementation    |
 | [frontend-security-coder](../plugins/frontend-mobile-security/agents/frontend-security-coder.md) | opus  | XSS prevention, CSP implementation, client-side security        |
@@ -127,8 +127,8 @@ Complete reference for all **100 specialized AI agents** organized by category w
 | ----------------------------------------------------------------------------- | ------ | ---------------------------------------------------------- |
 | [test-automator](../plugins/codebase-cleanup/agents/test-automator.md)        | sonnet | Comprehensive test suite creation (unit, integration, e2e) |
 | [tdd-orchestrator](../plugins/backend-development/agents/tdd-orchestrator.md) | sonnet | Test-Driven Development methodology guidance               |
-| [debugger](../plugins/error-debugging/agents/debugger.md)                     | sonnet | Error resolution and test failure analysis                 |
-| [error-detective](../plugins/error-debugging/agents/error-detective.md)       | sonnet | Log analysis and error pattern recognition                 |
+| [debugger](../plugins/debugging/agents/debugger.md)                     | sonnet | Error resolution and test failure analysis                 |
+| [error-detective](../plugins/debugging/agents/error-detective.md)       | sonnet | Log analysis and error pattern recognition                 |
 
 #### Performance & Observability
 
@@ -161,11 +161,11 @@ Complete reference for all **100 specialized AI agents** organized by category w
 
 | Agent                                                                                | Model  | Description                                                           |
 | ------------------------------------------------------------------------------------ | ------ | --------------------------------------------------------------------- |
-| [docs-architect](../plugins/code-documentation/agents/docs-architect.md)             | opus   | Comprehensive technical documentation generation                      |
-| [api-documenter](../plugins/api-testing-observability/agents/api-documenter.md)      | sonnet | OpenAPI/Swagger specifications and developer docs                     |
-| [reference-builder](../plugins/documentation-generation/agents/reference-builder.md) | haiku  | Technical references and API documentation                            |
-| [tutorial-engineer](../plugins/code-documentation/agents/tutorial-engineer.md)       | sonnet | Step-by-step tutorials and educational content                        |
-| [mermaid-expert](../plugins/documentation-generation/agents/mermaid-expert.md)       | sonnet | Diagram creation (flowcharts, sequences, ERDs)                        |
+| [docs-architect](../plugins/documentation/agents/docs-architect.md)             | opus   | Comprehensive technical documentation generation                      |
+| [api-documenter](../plugins/documentation/agents/api-documenter.md)      | sonnet | OpenAPI/Swagger specifications and developer docs                     |
+| [reference-builder](../plugins/documentation/agents/reference-builder.md) | haiku  | Technical references and API documentation                            |
+| [tutorial-engineer](../plugins/documentation/agents/tutorial-engineer.md)       | sonnet | Step-by-step tutorials and educational content                        |
+| [mermaid-expert](../plugins/documentation/agents/mermaid-expert.md)       | sonnet | Diagram creation (flowcharts, sequences, ERDs)                        |
 | [c4-code](../plugins/c4-architecture/agents/c4-code.md)                              | haiku  | C4 Code-level documentation with function signatures and dependencies |
 | [c4-component](../plugins/c4-architecture/agents/c4-component.md)                    | sonnet | C4 Component-level architecture synthesis and documentation           |
 | [c4-container](../plugins/c4-architecture/agents/c4-container.md)                    | sonnet | C4 Container-level architecture with API documentation                |
