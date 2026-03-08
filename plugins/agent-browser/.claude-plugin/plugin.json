@@ -1,0 +1,9 @@
+{
+  "name": "agent-browser",
+  "description": "Browser automation CLI for AI agents - navigate pages, fill forms, click buttons, take screenshots, extract data",
+  "author": {
+    "name": "Vercel Labs",
+    "url": "https://github.com/vercel-labs/agent-browser"
+  },
+  "license": "Apache-2.0"
+}

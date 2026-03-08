@@ -1,0 +1,9 @@
+{
+  "name": "database",
+  "description": "Database architecture, schema design, SQL optimization, query performance tuning, and cloud database cost optimization",
+  "author": {
+    "name": "Christopher Allen",
+    "email": "chris.allen94@gmail.com"
+  },
+  "license": "MIT"
+}

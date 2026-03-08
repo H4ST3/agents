@@ -1,0 +1,9 @@
+{
+  "name": "documentation",
+  "description": "API documentation, code explanation, Mermaid diagrams, tutorial generation, OpenAPI specs, ADRs, and changelog automation",
+  "author": {
+    "name": "Christopher Allen",
+    "email": "chris.allen94@gmail.com"
+  },
+  "license": "MIT"
+}
