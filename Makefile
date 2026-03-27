@@ -1,3 +1,28 @@
+# h4st3/agents — Curated fork of wshobson/agents
+# ================================================
+
+SHELL := /bin/bash
+.SHELLFLAGS := -euo pipefail -c
+
+.PHONY: audit sync
+
+## Validate marketplace.json entries match plugin directories
+audit:
+	@python3 tools/validate-marketplace.py
+
+## Fetch upstream and show divergence
+sync:
+	@git fetch upstream
+	@echo ""
+	@echo "Fork status:"
+	@echo "  Local:    $$(git rev-parse --short HEAD)"
+	@echo "  Upstream: $$(git rev-parse --short upstream/main)"
+	@echo "  Ahead:    $$(git rev-list --count upstream/main..HEAD) commits"
+	@echo "  Behind:   $$(git rev-list --count HEAD..upstream/main) commits"
+	@echo ""
+	@echo "To merge upstream: git merge upstream/main && make audit"
+
+# ─────────────────────────────────────────────────────
 # YouTube Design Extractor - Setup and Usage
 # ==========================================
 
